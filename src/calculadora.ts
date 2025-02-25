@@ -1,21 +1,28 @@
-export function calcular(num1: number, op: string, num2: number): number {
-  if (op == "+") {
+export enum Operacao {
+  SOMA = "+",
+  SUBTRACAO = "-",
+  MULTIPLICACAO = "*",
+  DIVISAO = "/",
+}
+
+export function calcular(num1: number, op: Operacao, num2: number): number {
+  if (op == Operacao.SOMA) {
     return num1 + num2;
   }
 
-  if (op == "-") {
+  if (op == Operacao.SUBTRACAO) {
     return num1 - num2;
   }
 
-  if (op == "*") {
+  if (op == Operacao.MULTIPLICACAO) {
     return num1 * num2;
   }
 
-  if (op == "/") {
+  if (op == Operacao.DIVISAO) {
     return num1 / num2;
   }
 
-  return 0;
+  throw new Error("Operação não encontrada");
 
   // switch (op) {
   //   case "+":
